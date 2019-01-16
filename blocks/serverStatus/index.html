@@ -1,0 +1,136 @@
+<style>
+    .astext {
+      background:none;
+      border:none;
+      margin:0;
+      padding:0;
+    }
+    .ipsDataItem_main {
+      padding-left: 17px !important;
+    }
+  </style>
+      <!--Js esposto contenente script per get alle api esposte di Arma 3 Servers-->
+      <script src="https://alir.eu/expservices/serverstat/ts3servicestatus.js"></script>
+  
+  
+  <h3 class="ipsWidget_title ipsType_reset">
+      STATO SERVIZI
+  </h3>
+  <div class="ipsPad ipsWidget_inner">
+      <div id="alirServerQueryLoading">
+          <ul class="ipsDataList ipsDataList_reducedSpacing">
+              <li class="ipsDataItem ipsClearfix">
+                  <div class="ipsDataItem_icon">
+                      <a class="ipsPos_left">
+                          <i class="fa fa-sync fa-spin" style="color:#3f90ff; font-size: 350%;"></i>
+                      </a>
+                  </div>
+                  <div class="ipsDataItem_main">
+                      <h3 class="ipsType_sectionHead ipsType_large ipsContained_container">
+                          <span class="ipsContained ipsType_break"><a>Verifica stato...ARMA</a></span>
+                      </h3>
+                  </div>
+              </li>
+          </ul>
+      </div>
+      <div id="tsServerQueryLoading">
+          <ul class="ipsDataList ipsDataList_reducedSpacing">
+              <li class="ipsDataItem ipsClearfix">
+                  <div class="ipsDataItem_icon">
+                      <a class="ipsPos_left">
+                          <i class="fa fa-sync fa-spin" style="color:#3f90ff; font-size: 350%;"></i>
+                      </a>
+                  </div>
+                  <div class="ipsDataItem_main">
+                      <h3 class="ipsType_sectionHead ipsType_large ipsContained_container">
+                          <span class="ipsContained ipsType_break"><a>Verifica stato...TS</a></span>
+                      </h3>
+                  </div>
+              </li>
+          </ul>
+      </div>
+      <div id="alirServerQueryError" hidden>
+          <ul class="ipsDataList ipsDataList_reducedSpacing">
+              <li class="ipsDataItem ipsClearfix">
+                  <div class="ipsDataItem_icon">
+                      <a class="ipsPos_left">
+                          <i class="fas fa-exclamation-triangle" style="color:#A52A2A; font-size: 350%;"></i>
+                      </a>
+                  </div>
+                  <div class="ipsDataItem_main">
+                      <h3 class="ipsType_sectionHead ipsType_large ipsContained_container">
+                          <span class="ipsContained ipsType_break"><a>Errore</a></span>
+                      </h3>
+                  </div>
+              </li>
+          </ul>
+      </div>
+      <div id="tsServerQueryError" hidden>
+          <ul class="ipsDataList ipsDataList_reducedSpacing">
+              <li class="ipsDataItem ipsClearfix">
+                  <div class="ipsDataItem_icon">
+                      <a class="ipsPos_left">
+                          <i class="fas fa-exclamation-triangle" style="color:#A52A2A; font-size: 350%;"></i>
+                      </a>
+                  </div>
+                  <div class="ipsDataItem_main">
+                      <h3 class="ipsType_sectionHead ipsType_large ipsContained_container">
+                          <span class="ipsContained ipsType_break"><a>Errore</a></span>
+                      </h3>
+                  </div>
+              </li>
+          </ul>
+      </div>
+      <div id="alirServerQuerySuccess" hidden>
+          <ul class="ipsDataList ipsDataList_reducedSpacing">
+              <li class="ipsDataItem ipsClearfix" id="server-work-good">
+                  <div class="ipsDataItem_icon">
+                      <a class="ipsPos_left" id="server_on">
+                          <i class="fa fa-server" title="Il server è online" style="color:#008040; font-size: 350%;"></i>
+                      </a>
+                      <a class="ipsPos_left" id="server_off" hidden>
+                          <i class="fa fa-server" title="Il server è offline" style="color:#A52A2A; font-size: 350%;"></i>
+                      </a>
+                  </div>
+                  <div class="ipsDataItem_main">
+                      <h3 class="ipsType_sectionHead ipsType_large ipsContained_container">
+                          <span class="ipsContained ipsType_break"><a>[ALIR] Server Arma 3</a></span>
+                      </h3>
+                      <p class="ipsType_reset ipsType_medium ipsType_light">
+                          <i class="fa fa-users" title="Giocatori"></i> <span title="Giocatori attuali" id="alirplayeron">---</span> / <span title="Giocatori massimi" id="alirmaxplayer">100</span> - <span title="Connettiti al server di gioco"><a  href="steam://rungameid/107410// +connect 145.239.149.40:2302" rel="external nofollow"><i class="fa fa-play-circle"></i> Connettiti </a></span> - <span title="Come mi connetto altrimenti?"><a  href="https://www.alir.eu/alirschool/tutorial/connessione-al-server-r19/" rel="external nofollow"><i class="fa fa-info-circle"></i> Info</a></span>
+  
+                      </p>
+                      <p class="ipsType_reset ipsType_medium ipsType_light">
+                          IP: <span id="aliraddress" title="Indirizzo ip">145.239.149.40</span> Porta: <span id="alirport" title="Porta">2302</span>
+                        <a class="ipsType_reset ipsType_medium ipsType_light"  href="https://arma3-servers.net/server/80875/" rel="external nofollow"><i class="fa fa-area-chart"></i> Stats</a>
+                      </p>
+                  </div>
+              </li>
+          </ul>
+      </div>
+      <div id="tsServerQuerySuccess" hidden>
+          <ul class="ipsDataList ipsDataList_reducedSpacing">
+              <li class="ipsDataItem ipsClearfix" id="server-work-goodTS">
+                  <div class="ipsDataItem_icon">
+                      <a class="ipsPos_left" id="ts3server_on">
+                          <i class="fa fa-server" title="Il server è online" style="color:#008040; font-size: 350%;"></i>
+                      </a>
+                      <a class="ipsPos_left" id="ts3server_off" hidden>
+                          <i class="fa fa-server" title="Il server è offline" style="color:#A52A2A; font-size: 350%;"></i>
+                      </a>
+                  </div>
+                  <div class="ipsDataItem_main">
+                      <h3 class="ipsType_sectionHead ipsType_large ipsContained_container">
+                          <span class="ipsContained ipsType_break"><a>[ALIR] TeamSpeak 3</a></span>
+                      </h3>
+                      <p class="ipsType_reset ipsType_medium ipsType_light">
+                          <i class="fa fa-users" title="Giocatori"></i> <span title="Giocatori attuali" id="tsplayeron">---</span> / <span title="Giocatori massimi" id="tsmaxplayer">256</span> - <span title="Connettiti al server di TS3"><a  href="ts3server://ts.alir.eu" rel="external nofollow"><i class="fa fa-volume-control-phone"></i> Connettiti </a></span> - <span title="Come mi connetto altrimenti?"><a  href="https://www.alir.eu/alirschool/tutorial/connessione-su-teamspeak-3-r20/" rel="external nofollow"><i class="fa fa-info-circle"></i> Info</a></span>
+  
+                      </p>
+                      <p class="ipsType_reset ipsType_medium ipsType_light">
+                          <span class="ipsType_reset ipsType_large ipsType_light" id="tsaddress" title="Indirizzo"></span> Porta: <span id="tsport" title="Porta">9987</span> <a  class="ipsType_reset ipsType_medium ipsType_light" href="https://teamspeak-servers.org/server/12318/" rel="external nofollow"><i class="fa fa-area-chart"></i> Stats</a> </p>
+                  </div>
+              </li>
+          </ul>
+      </div>
+  </div>
